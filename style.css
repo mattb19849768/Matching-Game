@@ -1,0 +1,156 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: url("YOUR-BACKGROUND.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  overflow: hidden;
+}
+
+h1 { margin: 20px 0 10px; text-shadow: 2px 2px 5px #000; }
+
+.stats {
+  display: flex;
+  gap: 15px;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 3px #000;
+  visibility: hidden;
+  margin-bottom: 10px;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(8, 100px);
+  gap: 12px;
+  justify-content: center;
+  visibility: hidden;
+  position: relative;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  perspective: 600px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  border: 2px solid #333;
+  box-sizing: border-box;
+}
+
+.front {
+  background: url("https://i.imgur.com/8wQdRzk.png") no-repeat center center;
+  background-size: cover;
+}
+
+.back {
+  background: #fff;
+  color: #222;
+  transform: rotateY(180deg);
+}
+
+.glow {
+  box-shadow: 0 0 20px 5px rgba(255,236,139,0.8);
+  border-color: #ffec8b !important;
+  transition: box-shadow 1s, border-color 1s;
+}
+
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, white, rgba(255,255,255,0));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleFade 1s linear forwards;
+  z-index: 5;
+}
+
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+
+#fireworksCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+}
+
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#countdownOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6em;
+  color: #ffec8b;
+  text-shadow: 0 0 10px #ffec8b;
+  z-index: 20;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.fadeScale {
+  animation: fadeShrink 1s ease forwards;
+}
+
+@keyframes fadeShrink {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.2); }
+}
+
+button {
+  margin: 10px;
+  padding: 10px 25px;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover { background: #019875; }

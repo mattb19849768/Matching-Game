@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Match Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="fireworksCanvas"></canvas>
+
+<div id="startScreen">
+  <h2>🃏 Memory Match</h2>
+  <p>Match all 32 cards efficiently!</p>
+  <button id="startBtn">▶️ Start Game</button>
+</div>
+
+<div id="countdownOverlay"></div>
+
+<h1>🃏 Memory Match</h1>
+
+<div class="stats" id="stats">
+  <div>Score: <span id="score">1000</span></div>
+  <div>Moves: <span id="moves">0</span></div>
+  <div>Time: <span id="timer">0</span> sec</div>
+  <div>🏆 Best Time: <span id="bestTime">--</span></div>
+</div>
+
+<div class="game" id="gameBoard"></div>
+
+<div>
+  <button id="reset" style="visibility:hidden;">🔄 Reset Game</button>
+  <button id="clearBest" style="visibility:hidden;">❌ Clear Best</button>
+  <button id="changeBack" style="visibility:hidden;">🎴 Change Card Back</button>
+</div>
+
+<!-- Sounds -->
+<audio id="flipSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
+<audio id="matchSound" src="https://actions.google.com/sounds/v1/cartoon/clang.ogg" preload="auto"></audio>
+<audio id="winSound" src="https://actions.google.com/sounds/v1/cartoon/hero_win.ogg" preload="auto"></audio>
+<audio id="count3" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+<audio id="count2" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+<audio id="count1" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+<audio id="countGo" src="https://actions.google.com/sounds/v1/alarms/air_horn.ogg" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
