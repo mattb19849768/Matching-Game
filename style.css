@@ -10,16 +10,45 @@ body {
   overflow: hidden;
 }
 
-h1 { margin: 20px 0 10px; text-shadow: 2px 2px 5px #000; }
-
-.stats {
+body, html {
+  height: 100%;
+  margin: 0;
   display: flex;
-  gap: 15px;
-  font-size: 1.1em;
-  text-shadow: 1px 1px 3px #000;
-  visibility: hidden;
-  margin-bottom: 10px;
+  flex-direction: column;
 }
+
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#stats-and-board {
+  display: flex;
+  flex-direction: column; /* or row if you want stats side-by-side */
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  flex-grow: 1;
+  gap: 20px;
+}
+
+#gameBoard {
+  display: grid; /* still controlled by JS */
+  justify-content: center; /* horizontally center grid */
+  align-content: center;   /* vertically center grid */
+  gap: 10px;               /* spacing between cards */
+}
+
+#stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  gap: 10px;
+}
+
 
 .game {
   display: grid;
@@ -196,3 +225,98 @@ footer {
   height: auto;
   vertical-align: middle;
 }
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  background: lightgray;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#gameBoard {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden; /* shown after countdown */
+}
+
+#endModal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#endModalCard {
+  background: linear-gradient(145deg, #fff, #f0f0f0);
+  border-radius: 12px;
+  padding: 25px 30px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  animation: modalPop 0.3s ease-out;
+}
+
+#endModalCard h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #2b8aef;
+}
+
+#endModalCard div#endStats div {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+#endModalCard button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.1s ease-in-out;
+}
+
+#playAgainBtn {
+  background-color: #2b8aef;
+  color: white;
+}
+
+#playAgainBtn:hover {
+  transform: scale(1.05);
+}
+
+#closeModalBtn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+#closeModalBtn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+

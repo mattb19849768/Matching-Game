@@ -10,25 +10,41 @@
 
 <canvas id="fireworksCanvas"></canvas>
 
+<!-- Start Screen -->
 <div id="startScreen">
   <h2>🃏 Memory Match</h2>
-  <p>Match all 32 cards efficiently!</p>
+  <p>Match all cards efficiently!</p>
+  <label for="pairCount">Select number of pairs:</label>
+  <select id="pairCount">
+    <option value="4">4 pairs</option>
+    <option value="8" selected>8 pairs</option>
+    <option value="12">12 pairs</option>
+    <option value="16">16 pairs</option>
+  </select>
   <button id="startBtn">▶️ Start Game</button>
+  <br><br>
+  <!-- Footer -->
+<footer>
+  <img src="images/logo.png" alt="Game Hub Logo" class="footer-logo" />
+  © 2025 Daddy — Hosted on GitHub Pages
+</footer>
 </div>
 
+<!-- Countdown Overlay -->
 <div id="countdownOverlay"></div>
-
-<h1>🃏 Memory Match</h1>
-
-<div class="stats" id="stats">
+<!-- Stats -->
+<div id="stats-and-board">
+<div class="stats" id="stats" style="visibility:hidden;">
   <div>Score: <span id="score">1000</span></div>
   <div>Moves: <span id="moves">0</span></div>
   <div>Time: <span id="timer">0</span> sec</div>
   <div>🏆 Best Time: <span id="bestTime">--</span></div>
 </div>
 
-<div class="game" id="gameBoard"></div>
+<!-- Game Board -->
+<div class="game" id="gameBoard" style="visibility:hidden;"></div>
 
+<!-- Controls -->
 <div>
   <a href="https://mattb19849768.github.io/Game-hub/" id="gameHub" class="button" style="text-decoration: none;">Game Hub</a>
   <button id="reset" style="visibility:hidden;">🔄 Reset Game</button>
@@ -36,20 +52,23 @@
   <button id="changeBack" style="visibility:hidden;">🎴 Change Card Back</button>
 </div>
 
-	<footer>
+<!-- Footer -->
+<footer>
   <img src="images/logo.png" alt="Game Hub Logo" class="footer-logo" />
   © 2025 Daddy — Hosted on GitHub Pages
 </footer>
-
+</div>
 <!-- Sounds -->
-<audio id="flipSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
-<audio id="matchSound" src="https://actions.google.com/sounds/v1/human_voices/human_fart.ogg" preload="auto"></audio>
-<audio id="winSound" src="https://actions.google.com/sounds/v1/cartoon/hero_win.ogg" preload="auto"></audio>
-<audio id="count3" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
-<audio id="count2" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
-<audio id="count1" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
-<audio id="countGo" src="https://actions.google.com/sounds/v1/weapons/big_explosion_cut_off.ogg" preload="auto"></audio>
+<audio id="flipSound" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/conga.wav" preload="auto"></audio>
+<audio id="matchSound" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/hihat.wav" preload="auto"></audio>
+<audio id="winSound" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/kick.wav" preload="auto"></audio>
 
+<audio id="count3" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/tom.wav" preload="auto"></audio>
+<audio id="count2" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/tom.wav" preload="auto"></audio>
+<audio id="count1" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/tom.wav" preload="auto"></audio>
+<audio id="countGo" src="https://cdn.jsdelivr.net/gh/mdn/webaudio-examples/audio-basics/audio/snare.wav" preload="auto"></audio>
+
+<!-- Script -->
 <script src="script.js"></script>
 </body>
 </html>
